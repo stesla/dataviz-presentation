@@ -4,13 +4,25 @@
 
   <head>
     <title>Vizualization Rennaisance</title>
-    <link href="css/reset.css" rel="stylesheet" type="text/css">
+    <meta charset='utf-8'/>
     <link href="css/gist.css" rel="stylesheet" type="text/css">  
     <script src='js/slides.js'></script>
   </head>
 
   <style>
-    h4.byline { margin-top: 2em; }
+    aside {
+      font-size: small;
+      position: absolute;
+      bottom: 50px;
+    }
+
+    aside li::before {
+      display: none;
+    }
+
+    sup {
+      font-size: small;
+    }
   </style>
 
   <body style='display: none'>
@@ -44,7 +56,7 @@
             <p>So why am I giving a presentation on data vizualization?</p>
           </article>
 
-          <article class="bigger">
+          <article>
             <h2>Data Vizualization is Easy!</h2>
           </article>
 
@@ -59,16 +71,53 @@
               <li>raster graphics</li>
               <li>games</li>
               <li>fractals</li>
+              <li>real-time charts</li>
               <li>image editing</li>
               <li>pixel-by-pixel manipulation</li>
+              <li>high-performance</li>
             </ul>
           </article>
 
           <article>
             <h3>When to use SVG</h3>
+            <ul>
+              <li>structured data</li>
+              <li>user interfaces</li>
+              <li>interactive visualizations</li>
+              <li>lots of text</li>
+              <li>static or server-generated content</li>
+            </ul>
           </article>
-        </section>
 
+          <article>
+            <h3>How to Make Your SVG</h3>
+            <ul>
+              <li>by hand, using a text editor</li>
+              <li>
+                by hand, using a
+                <a href="http://en.wikipedia.org/wiki/List_of_vector_graphics_editors">vector
+                  graphics editor</a>
+              </li>
+              <li>
+                in code, using a data-oriented framework
+                <br/>
+                (e.g. 
+                  <a href="http://mbostock.github.com/protovis/">Protovis</a>,
+                  <a href="http://thejit.org/">InfoVis Toolkit</a>,
+                  <a href="http://mbostock.github.com/d3/">d3</a>)
+              </li>
+              <li>
+                in code, using an SVG drawing library
+                <br/>
+                (e.g.
+                  <a href="http://raphaeljs.com/">Raphaël</a>
+                  <a href="http://keith-wood.name/svg.html">jQuery
+                    SVG</a>)
+              </li>
+            </ul>
+          </article>
+
+        </section>
       </div>
     </div>
   </body>
