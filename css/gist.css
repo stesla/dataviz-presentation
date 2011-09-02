@@ -1,1 +1,8 @@
+.gist { border-radius:8px !important; background: transparent; font-size: 14px }
+.gist .gist-data { border:none !important; }
+
+.gist .gist-file { border-radius: 8px !important; padding:10px; }
+.gist .gist-file .gist-meta {display:none;}
+
+
 .gist .gist-file .gist-meta {display:none;}

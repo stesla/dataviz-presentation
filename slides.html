@@ -6,7 +6,13 @@
     <title>Vizualization Rennaisance</title>
     <meta charset='utf-8'/>
     <link href="css/gist.css" rel="stylesheet" type="text/css">  
-    <script src='js/slides.js'></script>
+    <script src="js/slides.js"></script>
+    <script src="js/raphael-min.js"></script>
+    <script>
+      function makePaper(id) {
+        return Raphael(id, 785, 500);
+      }
+    </script>
   </head>
 
   <style>
@@ -22,6 +28,22 @@
 
     sup {
       font-size: small;
+    }
+ 
+    .punchline {
+      margin-top: 1em;
+    } 
+
+    .punchline p {
+      font-weight: bold;
+    }
+
+    .paper{
+      margin-top: 1em;
+    }
+
+    .code {
+      margin: 1em 0 1em 0;
     }
   </style>
 
@@ -54,15 +76,14 @@
             <p>I love digging into language implementations and
               compiler technologies.</p>
             <p>So why am I giving a presentation on data vizualization?</p>
+            <div class="build punchline">
+              <p class="bold">Data Vizualization is Easy!</p>
+              <p class="bold">(or at least easier than it used to be)</p>
+            </div>
           </article>
 
           <article>
-            <h2>Data Vizualization is Easy!</h2>
-          </article>
-
-          <article>
-            Some stuff needs to go here about how stuff is easier than
-            it used to be. Maybe. Maybe this section will go away.
+            <h2>There are so many technologies to choose from...</h2>
           </article>
 
           <article>
@@ -123,6 +144,10 @@
           </article>
 
           <article>
+            <h2>Let's take a look at Raphaël</h2>
+          </article>
+          
+          <article>
             <h3>Raphaël is Awesome</h3>
 
             <p>It does <em>not</em> fully implement everything you can
@@ -135,6 +160,35 @@
 
             <p>It provides a several convenience methods for doing things
             beyond just putting graphics on the screen.</p>
+          </article>
+
+          <article>
+            <h3>Create an SVG Container</h3>
+
+            <p>Before you can do anything with Raphaël, you have to
+              create your SVG container. All drawing is done with a
+              reference to this object.</p>
+
+            <div class="code"><script src="https://gist.github.com/1189884.js"></script></div>
+          </article>
+
+          <article>
+            <h3>Draw a Circle</h3>
+
+            <p>Drawing shapes is easy.</p>
+
+            <div class="code"><script src="https://gist.github.com/1189925.js"> </script></div>
+          </article>
+
+          <article>
+            <h3>Draw a Circle</h3>
+            <div class="paper" id="ex1"/>
+            <script>
+              var paper = makePaper("ex1");
+              var circle = paper.circle(395, 250, 150);
+              circle.attr("fill", "#f00");
+              circle.attr("stroke", "#fff");
+            </script>
           </article>
 
         </section>
