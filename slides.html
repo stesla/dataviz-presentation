@@ -241,7 +241,7 @@ setAttrs(rect, {x: 68, y: 50, width: 632, height: 100,
               create your SVG container. All drawing is done with a
               reference to this object.</p>
 
-            <div class="code"><script src="https://gist.github.com/1189884.js"></script></div>
+            <script src="https://gist.github.com/1189884.js?file=createPaper.js"></script>
           </article>
 
  
@@ -250,7 +250,7 @@ setAttrs(rect, {x: 68, y: 50, width: 632, height: 100,
             <p>This is one area where Raphaël is lacking. It cannot
               create <code>textPath</code> elements, which is a cool feature
               of SVG.</p>
-            <div class="code"><script src="https://gist.github.com/1190460.js"> </script></div>
+            <div class="code"><script src="https://gist.github.com/1190460.js?file=text.js"></script></div>
             <div class="paper" id="text"/>
             <script>
 var paper = Raphael("text", 785, 200);
@@ -265,7 +265,7 @@ paper.text(35, 120, "SVG is great for text!").attr(attr);
 
           <article>
             <h3>Simple Shapes</h3>
-            <div class="code"><script src="https://gist.github.com/1189925.js"> </script></div>
+            <div class="code"><script src="https://gist.github.com/1189925.js?file=shapes.js"> </script></div>
             <div class="paper" id="shapes"/>
             <script>
 var paper = Raphael("shapes", 785, 200);
@@ -280,7 +280,7 @@ paper.ellipse(600, 100, 100, 50)
 
           <article>
             <h3>Other Shapes, Using Paths</h3>
-            <div class="code"><script src="https://gist.github.com/1190435.js"> </script></div>
+            <div class="code"><script src="https://gist.github.com/1190435.js?file=path-shapes.js"> </script></div>
             <div class="paper" id="path-shapes"/>
             <script>
 var paper = Raphael("path-shapes", 785, 200);
@@ -299,7 +299,7 @@ paper.path("M 250 75 L 323 301 131 161 369 161 177 301 z")
           <article>
             <h3>Bezier Curves</h3>   
             <p>You can do even more with paths, check out the <a href="http://www.w3.org/TR/SVG/paths.html">spec</a>.</p>
-            <div class="code"><script src="https://gist.github.com/1190505.js"> </script></div>
+            <div class="code"><script src="https://gist.github.com/1190505.js?file=path-curves.js"> </script></div>
             <div class="paper" id="path-curves"/>
             <script>
 var paper = Raphael("path-curves", 785, 200);
@@ -335,7 +335,7 @@ circle.clone().translate(525).attr("fill", "r(0.25, 0.75)#fff-#000");
 
           <article>
             <h3>Animation</h3>
-            <div class="code"><script src="https://gist.github.com/1190521.js"> </script></div>
+            <div class="code"><script src="https://gist.github.com/1190521.js?file=animation.js"> </script></div>
             <div class="paper" id="animation"/>
             <script>
 var paper = Raphael("animation", 785, 200);
