@@ -177,31 +177,49 @@
             <div class="code"><script src="https://gist.github.com/1189925.js"> </script></div>
             <div class="paper" id="ex1"/>
             <script>
-              var paper = Raphael("ex1", 785, 200);
-              paper.rect(68, 0, 300, 200)
-                .attr("stroke-width", "1px");
-              paper.circle(68+150, 100, 75)
-                .attr("fill", "red").attr("stroke", "white");
-              paper.ellipse(600, 100, 100, 50)
-                .attr("fill", "#aaa").attr("stroke-width", "5px");
+var paper = Raphael("ex1", 785, 200);
+paper.rect(68, 0, 300, 200)
+  .attr("stroke-width", "1px");
+paper.circle(68+150, 100, 75)
+  .attr("fill", "red").attr("stroke", "white");
+paper.ellipse(600, 100, 100, 50)
+  .attr("fill", "#aaa").attr("stroke-width", "5px");
             </script>
           </article>
 
           <article>
             <h3>Other Shapes, Using Paths</h3>
-            <div class="code"><script src="https://gist.github.com/1190435.js"> </script></code>
+            <div class="code"><script src="https://gist.github.com/1190435.js"> </script></div>
             <div class="paper" id="ex2"/>
             <script>
-              var paper = Raphael("ex2", 785, 200);
-              paper.path("M 150 15 L 50 180 L 250 180 Z")
-                .attr("fill", "gray").attr("stroke-width", "5px");
-              paper.path("M 400 100 h -75 a 75 75 0 1 0 75 -75 z")
-                .attr("fill", "yellow").attr("stroke-width", "3px");
-              paper.path("M 390 90 v -75 a 75 75 0 0 0 -75 75 z")
-                .attr("fill", "red").attr("stroke-width", "3px");
-              paper.path("M 250 75 L 323 301 131 161 369 161 177 301 z")
-                .scale(.75, .75).translate(400, -90)
-                .attr("fill", "blue").attr("stroke", "blue");
+var paper = Raphael("ex2", 785, 200);
+paper.path("M 150 15 L 50 180 L 250 180 Z")
+  .attr({fill: "gray", "stroke-width": "5px"});
+paper.path("M 400 100 h -75 a 75 75 0 1 0 75 -75 z")
+  .attr({fill: "yellow", "stroke-width": "3px"});
+paper.path("M 390 90 v -75 a 75 75 0 0 0 -75 75 z")
+  .attr({fill: "red", "stroke-width": "3px"});
+paper.path("M 250 75 L 323 301 131 161 369 161 177 301 z")
+  .scale(.75, .75).translate(400, -90)
+  .attr({fill: "blue", stroke: "blue"});
+            </script>
+          </article>
+ 
+          <article>
+            <h3>Text</h3>
+            <p>This is one area where Raphaël is lacking. It cannot
+              to <code>textPath</code> elements, which is a cool feature
+              of SVG.</p>
+            <div class="code"><script src="https://gist.github.com/1190460.js"> </script></div>
+            <div class="paper" id="ex3"/>
+            <script>
+var paper = Raphael("ex3", 785, 200);
+var attr = {
+  fill: "purple",
+  font: "80px Helvetica, Arial",
+  "text-anchor": "start"
+};
+paper.text(35, 120, "SVG is great for text!").attr(attr);
             </script>
           </article>
         </section>
