@@ -224,6 +224,23 @@ paper.path("M 250 75 L 323 301 131 161 369 161 177 301 z")
             </script>
           </article>
 
+          <article>
+            <h3>Bezier Curves</h3>
+            <div class="code"><script src="https://gist.github.com/1190505.js"> </script></div>
+            <div class="paper" id="path-curves"/>
+            <script>
+var paper = Raphael("path-curves", 785, 200);
+var path = "M 100 100"
+         + "C 120 10 180 10 200 100"
+         + "S 280 190 300 100"
+         + "S 380 10 400 100"
+         + "S 480 190 500 100"
+         + "S 580 10 600 100"
+         + "S 680 190 700 100";
+paper.path(path);
+            </script>
+          </article>
+
         </section>
       </div>
     </div>
