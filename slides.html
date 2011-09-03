@@ -260,7 +260,21 @@ paper.path(path);
 
           <article>
             <h3>Gradients</h3>
-            <p>TODO!</p>
+            <p><strong>Note:</strong> Radial gradients only work on circles and ellipses.</p>
+            <div class="code"><script src="https://gist.github.com/1191313.js?file=gradients.js"></script></div>
+            <div class="paper" id="gradients"/>
+            <script>
+var paper = Raphael("gradients", 785, 200);
+var circle = paper.circle(130, 100, 75);
+// Simple 90 degree gradient from white to black
+circle.attr("fill", "90-#fff-#000");
+// 0 degree gradient from white to black, via red at 20%
+circle.clone().translate(175).attr("fill", "0-#fff-#f00:20-#000");
+// Radial gradient from white to black
+circle.clone().translate(350).attr("fill", "r#fff-#000");
+// Radiel gradient from white to black at focus point (0.25, 0.75)
+circle.clone().translate(525).attr("fill", "r(0.25, 0.75)#fff-#000");
+            </script>
           </article>
 
           <article>
