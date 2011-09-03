@@ -8,11 +8,6 @@
     <link href="css/gist.css" rel="stylesheet" type="text/css">  
     <script src="js/slides.js"></script>
     <script src="js/raphael-min.js"></script>
-    <script>
-      function makePaper(id) {
-        return Raphael(id, 785, 500);
-      }
-    </script>
   </head>
 
   <style>
@@ -173,21 +168,17 @@
           </article>
 
           <article>
-            <h3>Draw a Circle</h3>
-
-            <p>Drawing shapes is easy.</p>
-
+            <h3>Simple Shapes</h3>
             <div class="code"><script src="https://gist.github.com/1189925.js"> </script></div>
-          </article>
-
-          <article>
-            <h3>Draw a Circle</h3>
             <div class="paper" id="ex1"/>
             <script>
-              var paper = makePaper("ex1");
-              var circle = paper.circle(395, 250, 150);
-              circle.attr("fill", "#f00");
-              circle.attr("stroke", "#fff");
+              var paper = Raphael("ex1", 785, 200);
+              paper.rect(68, 0, 300, 200)
+                .attr("stroke-width", "1px");
+              paper.circle(68+150, 100, 75)
+                .attr("fill", "red").attr("stroke", "white");
+              paper.ellipse(600, 100, 100, 50)
+                .attr("fill", "#aaa").attr("stroke-width", "5px");
             </script>
           </article>
 
