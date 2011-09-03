@@ -241,6 +241,62 @@ paper.path(path);
             </script>
           </article>
 
+          <article>
+            <h3>Gradients</h3>
+            <p>TODO!</p>
+          </article>
+
+          <article>
+            <h3>Animation</h3>
+            <div class="code"><script src="https://gist.github.com/1190521.js"> </script></div>
+            <div class="paper" id="animation"/>
+            <script>
+var paper = Raphael("animation", 785, 200);
+var left, right, circle = paper.circle(30, 100, 20).attr("fill", "black");
+right = function() {
+  circle.animate({cx: 700, r: 80, fill: "red"}, 3000, "bounce");
+  circle.node.onclick = left;
+};
+left = function() {
+  circle.animate({cx: 30, r: 10, fill: "black"}, 3000, "bounce");
+  circle.node.onclick = right;
+}
+circle.node.onclick = right;
+            </script>
+          </article>
+
+          <article>
+            <h2>Official Raphaël demos...</h2>
+          </article>
+
+          <article class="fill">
+            <h3>Using <code>animateAlong</code> to follow a path</h3>
+            <iframe src="http://raphaeljs.com/gear.html"></iframe>
+          </article>
+
+          <article class="fill">
+            <h3>Really complex paths</h3>
+            <iframe src="http://raphaeljs.com/tiger.html"></iframe>
+          </article>
+
+          <article class="fill">
+            <h3>Interactive Curves</h3>
+            <iframe src="http://raphaeljs.com/ichart.html"></iframe>
+          </article>
+
+          <article class="fill">
+            <h3>Interactive Maps</h3>
+            <iframe src="http://raphaeljs.com/australia.html"></iframe>
+          </article>
+
+          <article class="fill">
+            <h3>Interactive Data</h3>
+            <iframe src="http://raphaeljs.com/growing-pie.html"></iframe>
+          </article>
+
+          <article>
+            <h2>Questions?</h2>
+          </article>
         </section>
       </div>
     </div>
