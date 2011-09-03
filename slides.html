@@ -172,12 +172,31 @@
             <div class="code"><script src="https://gist.github.com/1189884.js"></script></div>
           </article>
 
+ 
+          <article>
+            <h3>Text</h3>
+            <p>This is one area where Raphaël is lacking. It cannot
+              to <code>textPath</code> elements, which is a cool feature
+              of SVG.</p>
+            <div class="code"><script src="https://gist.github.com/1190460.js"> </script></div>
+            <div class="paper" id="text"/>
+            <script>
+var paper = Raphael("text", 785, 200);
+var attr = {
+  fill: "purple",
+  font: "80px Helvetica, Arial",
+  "text-anchor": "start"
+};
+paper.text(35, 120, "SVG is great for text!").attr(attr);
+            </script>
+          </article>
+
           <article>
             <h3>Simple Shapes</h3>
             <div class="code"><script src="https://gist.github.com/1189925.js"> </script></div>
-            <div class="paper" id="ex1"/>
+            <div class="paper" id="shapes"/>
             <script>
-var paper = Raphael("ex1", 785, 200);
+var paper = Raphael("shapes", 785, 200);
 paper.rect(68, 0, 300, 200)
   .attr("stroke-width", "1px");
 paper.circle(68+150, 100, 75)
@@ -190,9 +209,9 @@ paper.ellipse(600, 100, 100, 50)
           <article>
             <h3>Other Shapes, Using Paths</h3>
             <div class="code"><script src="https://gist.github.com/1190435.js"> </script></div>
-            <div class="paper" id="ex2"/>
+            <div class="paper" id="path-shapes"/>
             <script>
-var paper = Raphael("ex2", 785, 200);
+var paper = Raphael("path-shapes", 785, 200);
 paper.path("M 150 15 L 50 180 L 250 180 Z")
   .attr({fill: "gray", "stroke-width": "5px"});
 paper.path("M 400 100 h -75 a 75 75 0 1 0 75 -75 z")
@@ -204,24 +223,7 @@ paper.path("M 250 75 L 323 301 131 161 369 161 177 301 z")
   .attr({fill: "blue", stroke: "blue"});
             </script>
           </article>
- 
-          <article>
-            <h3>Text</h3>
-            <p>This is one area where Raphaël is lacking. It cannot
-              to <code>textPath</code> elements, which is a cool feature
-              of SVG.</p>
-            <div class="code"><script src="https://gist.github.com/1190460.js"> </script></div>
-            <div class="paper" id="ex3"/>
-            <script>
-var paper = Raphael("ex3", 785, 200);
-var attr = {
-  fill: "purple",
-  font: "80px Helvetica, Arial",
-  "text-anchor": "start"
-};
-paper.text(35, 120, "SVG is great for text!").attr(attr);
-            </script>
-          </article>
+
         </section>
       </div>
     </div>
