@@ -3,11 +3,12 @@
 <html>
 
   <head>
-    <title>Vizualization Rennaisance</title>
+    <title>Vizualization Renaissance</title>
     <meta charset='utf-8'/>
     <link href="css/gist.css" rel="stylesheet" type="text/css">  
     <script src="js/slides.js"></script>
     <script src="js/raphael-min.js"></script>
+    <script src="js/underscore-min.js"></script>
   </head>
 
   <style>
@@ -15,6 +16,8 @@
       margin-top: 1em;
       position: absolute;
       bottom: 10px;
+      width: 785px;
+      height: 200px;
     }
 
     .code {
@@ -37,7 +40,7 @@
         <section class='slides layout-regular'>
 
           <article>
-            <h1>Vizualziation Rennaisance</h1>
+            <h1>Vizualziation Renaissance</h1>
             <h3>Using SVG with Raphael.js</h3>
             <p>
               Samuel Tesla
@@ -103,9 +106,14 @@
           </article>
 
           <article>
-            <h3>When to use Canvas</h3>
+            <h3>HTML5 Canvas</h3>
+
+            <p>Canvas has been getting a lot of attention lately. It's
+              very cool. You can do a lot of neat things with canvas,
+              but it's not the best tool for everything. Canvas
+              requires the use of JavaScript.</p>
+
             <ul>
-              <li>raster graphics</li>
               <li>games</li>
               <li>fractals</li>
               <li>real-time charts</li>
@@ -116,69 +124,116 @@
           </article>
 
           <article>
-            <h3>When to use SVG</h3>
+            <h3>SVG</h3>
+
+            <p>SVG is not a new technology. It has been around
+              for over a decade. It's an XML markup, so it lives in
+              the DOM. Unlike Canvas, you can create SVG graphics
+              without JavaScript.</p>
+
             <ul>
               <li>structured data</li>
               <li>user interfaces</li>
               <li>interactive visualizations</li>
-              <li>lots of text</li>
+              <li>graphics with text</li>
               <li>static or server-generated content</li>
             </ul>
           </article>
 
           <article>
-            <h3>How to Make Your SVG</h3>
-            <ul>
-              <li>by hand, using a text editor</li>
-              <li>
-                by hand, using a
-                <a href="http://en.wikipedia.org/wiki/List_of_vector_graphics_editors">vector
-                  graphics editor</a>
-              </li>
-              <li>
-                on the server,
-                using <a href="http://www.google.com/search?q=server-side+SVG+libraries">one
-                  of many libraries</a>
-              </li>
-              <li>
-                in the browser, using a data-oriented framework
-                <br/>
-                <small>(e.g. 
-                  <a href="http://mbostock.github.com/protovis/">Protovis</a>,
-                  <a href="http://thejit.org/">InfoVis Toolkit</a>,
-                  <a href="http://mbostock.github.com/d3/">d3</a>)</small>
-              </li>
-              <li>
-                in the browser, using an SVG drawing library
-                <br/>
-                <small>(e.g.
-                  <a href="http://raphaeljs.com/">Raphaël</a>,
-                  <a href="http://keith-wood.name/svg.html">jQuery
-                    SVG</a>)</small>
-              </li>
-            </ul>
+            <h1>So you want to use SVG...</h1>
+            <h2>...how do you make it?</h2>
           </article>
 
           <article>
-            <h2>Let's take a look at Raphaël</h2>
+            <h3>By Hand</h3>
+            <p>SVG is just XML, so you can use your
+              <a href="http://www.gnu.org/software/emacs/">favorite</a>
+              <a href="http://macromates.com/">text</a>
+              <a href="http://www.vim.org/">editor</a>. Or you can
+              use any of a plethora of <a href="http://en.wikipedia.org/wiki/List_of_vector_graphics_editors">vector
+                graphics editors</a>.</p>
+            <div class="code"><script src="https://gist.github.com/1191361.js?file=svg.xml"></script></div>
+            <svg class="paper" xmlns="http://www.w3.org/2000/svg"
+                 version="1.1" width="785" height="200">
+              <rect x="50" y="50" width="300" height="100" r="0"
+                    rx="0" ry="0" fill="cyan" stroke="black"
+                    stroke-width="5px"/>
+              <ellipse cx="600" cy="100" rx="150" ry="50"
+                       fill="orange" stroke="black"
+                       stroke-width="5px"/>
+            </svg>
+          </article>
+
+          <article>
+            <h3>With Code on the Server</h3>
+            <p>Whether you generate static documents and serve them
+            up, or create your SVG documents on the fly, there is a
+            wide variety
+            of <a href="http://www.google.com/search?q=server-side+SVG+libraries">SVG
+            libraries</a> in most any language you might prefer.</p>
+          </article>
+
+          <article>
+            <h3>With the DOM API</h3>
+            <div class="code"><script src="https://gist.github.com/1191412.js?file=js-svg.js"></script></div>
+            <div class="paper" id="js-svg"/>
+            <script>
+function setAttrs(obj, attrs) {
+  _.each(attrs, function(value, attr) {
+    obj.setAttribute(attr, value);
+  });
+};
+
+var paper = document.getElementById("js-svg");
+var svgns = "http://www.w3.org/2000/svg";
+var svg = paper.appendChild(document.createElementNS(svgns,"svg"));
+var rect = svg.appendChild(document.createElementNS(svgns,"rect"));
+setAttrs(svg, {width: 768, height: 200});
+setAttrs(rect, {x: 68, y: 50, width: 632, height: 100,
+                fill: "blue"});
+            </script>
+          </article>
+
+          <article>
+            <h3>With a Data Visualization Framework</h3>
+            <p>
+              There are several data vizualization frameworks. You
+              give them data, and choose a style of visualization, and
+              the framework does all the heavy lifting (e.g. 
+              <a href="http://mbostock.github.com/protovis/">Protovis</a>,
+              <a href="http://thejit.org/">InfoVis Toolkit</a>,
+              <a href="http://mbostock.github.com/d3/">d3</a>).
+            </p>
+            <iframe style="border: none"
+                    src="http://mbostock.github.com/protovis/ex/pie-full.html"></iframe>
+            <aside>
+              <p>This <a href="http://mbostock.github.com/protovis/ex/pie.html">chart</a>
+                is from the Protovis website.</p>
+            </aside>
+          </article>
+
+          <article>
+            <h3>With an SVG Drawing Library</h3>
+            <p>There are a couple of libraries that let you draw
+              whatever SVG you want, but are easier to use than the
+              raw DOM API.</p>
+
+            <p><strong><a href="http://keith-wood.name/svg.html">jQuery
+                  SVG</a></strong> has a relatively complete
+              API, and is extensible. However, in my experience it is
+              a bit inconsistent with how it works. But, it gets the job
+              done.</p>
+
+            <p><strong><a href="http://raphaeljs.com/">Raphaël</a></strong>
+              does not implement everything in SVG, but
+              it <em>does</em> implement everything in both SVG and
+              VML so that it can support Internet Explorer.</p>
+            </p>
+
+            <div class="build"><h2>Let's take a look at Raphaël...</h2></div>
           </article>
           
-          <article>
-            <h3>Raphaël is Awesome</h3>
-
-            <p>It does <em>not</em> fully implement everything you can
-            do in SVG, but it's great for building interactive
-            vizualizations and UIs.</p>
-
-            <p>It nicely encapsulates the raw SVG generation. This way
-            you don't have to worry about XML namespaces and
-            browser-specific JavaScript.</p>
-
-            <p>It provides a several convenience methods for doing things
-            beyond just putting graphics on the screen.</p>
-
-          </article>
-
           <article>
             <h3>Create an SVG Container</h3>
 
@@ -193,7 +248,7 @@
           <article>
             <h3>Text</h3>
             <p>This is one area where Raphaël is lacking. It cannot
-              to <code>textPath</code> elements, which is a cool feature
+              create <code>textPath</code> elements, which is a cool feature
               of SVG.</p>
             <div class="code"><script src="https://gist.github.com/1190460.js"> </script></div>
             <div class="paper" id="text"/>
@@ -242,7 +297,8 @@ paper.path("M 250 75 L 323 301 131 161 369 161 177 301 z")
           </article>
 
           <article>
-            <h3>Bezier Curves</h3>
+            <h3>Bezier Curves</h3>   
+            <p>You can do even more with paths, check out the <a href="http://www.w3.org/TR/SVG/paths.html">spec</a>.</p>
             <div class="code"><script src="https://gist.github.com/1190505.js"> </script></div>
             <div class="paper" id="path-curves"/>
             <script>
@@ -301,13 +357,13 @@ circle.node.onclick = right;
           </article>
 
           <article class="fill">
-            <h3>Using <code>animateAlong</code> to follow a path</h3>
-            <iframe src="http://raphaeljs.com/gear.html"></iframe>
+            <h3>Really complex paths</h3>
+            <iframe src="http://raphaeljs.com/tiger.html"></iframe>
           </article>
 
           <article class="fill">
-            <h3>Really complex paths</h3>
-            <iframe src="http://raphaeljs.com/tiger.html"></iframe>
+            <h3>Using <code>animateAlong</code> to follow a path</h3>
+            <iframe src="http://raphaeljs.com/gear.html"></iframe>
           </article>
 
           <article class="fill">
